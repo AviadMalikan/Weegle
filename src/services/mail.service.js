@@ -2,6 +2,7 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
+
 const loggedInUser = {
     email: 'user@weegle.com',
     fullname: 'Aviad Weegle'
@@ -53,7 +54,7 @@ function save(mail) {
 }
 
 
-function getEmptyMail(txt, subject, byUser) {
+function getEmptyMail(txt, subject = 'empty', byUser, date) {
     return {
         subject,
         body: {
@@ -62,7 +63,7 @@ function getEmptyMail(txt, subject, byUser) {
         },
         isRead: false,
         sentAt: date || new Date(),
-        to,
+        to: '',
         byUser,
         // content: {
         //     text,
@@ -143,7 +144,7 @@ function _createMails() {
                 "byUser": "traveler@example.com"
             }
         ]]
-       
+
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
