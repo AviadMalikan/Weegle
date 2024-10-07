@@ -1,0 +1,52 @@
+[
+    {
+        "subject": "Meeting Reminder",
+        "body": {
+            "txt": "Don't forget about the meeting tomorrow at 10 AM."
+        },
+        "isRead": false,
+        "sentAt": "2024-09-15T10:30:00Z",
+        "to": "jane.doe@example.com",
+        "byUser": "john.smith@example.com"
+    },
+    {
+        "subject": "Project Update",
+        "body": {
+            "txt": "The latest update on the project is ready for your review."
+        },
+        "isRead": false,
+        "sentAt": "2024-10-01T14:45:00Z",
+        "to": "team@example.com",
+        "byUser": "manager@example.com"
+    },
+    {
+        "subject": "Lunch Plans",
+        "body": {
+            "txt": "Are we still on for lunch at 1 PM today?"
+        },
+        "isRead": false,
+        "sentAt": "2024-10-07T09:00:00Z",
+        "to": "alice@example.com",
+        "byUser": "bob@example.com"
+    },
+    {
+        "subject": "Invoice for September",
+        "body": {
+            "txt": "Please find attached the invoice for September."
+        },
+        "isRead": false,
+        "sentAt": "2024-10-05T08:20:00Z",
+        "to": "accounts@example.com",
+        "byUser": "supplier@example.com"
+    },
+    {
+        "subject": "Weekend Getaway",
+        "body": {
+            "txt": "Looking forward to our weekend trip! Do you have any preferences on where to go?"
+        },
+        "isRead": false,
+        "sentAt": "2024-09-30T16:15:00Z",
+        "to": "friend@example.com",
+        "byUser": "traveler@example.com"
+    }
+]
