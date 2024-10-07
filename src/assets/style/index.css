@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: var(--gray4);
+    text-align: center;
+    color: rgb(243 245 247);
+    caret-color: transparent;
+}
+
+/* setup */
+@import 'setups/vars.css';
+@import 'setups/typography.css';
+
+
+/* helpers */
+@import 'base/base.css';
+@import 'base/forms.css';
+@import 'base/helpers.css';
+@import 'base/layout.css';
+
+/* views */
+@import 'views/app-header.css';
+/* @import 'views/post-index.css'; */
+/* @import 'views/about.css'; */
+@import 'views/home.css';
+
+/* Component */

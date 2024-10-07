@@ -1,0 +1,33 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-columns: 1fr 620px 1fr;
+}
+
+.main-layout>* {
+    grid-column: 2;
+}
+
+.main-layout .full {
+    grid-column: 1/-1;
+}
+
+.container {
+    max-width: 800px;
+    padding: 1em;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 992px) {
+    .main-layout {
+        grid-template-columns: 1fr 620px 1fr;
+    }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 620px) {
+    .main-layout {
+        grid-template-columns: 1rem 1fr 1rem;
+    }
+}

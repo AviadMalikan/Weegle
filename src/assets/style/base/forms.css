@@ -1,0 +1,56 @@
+button {
+    cursor: pointer;
+    background-color: var(--gray3);
+    margin: 0;
+    border: 0;
+    padding: 0.5em 0.8em;
+    border-radius: 4px;
+    color: var(--white);
+}
+
+button:hover {
+    background-color: var(--gray5);
+    color: var(--white);
+    transition: .3s;
+}
+
+input {
+    caret-color: var(--white);
+    color: var(--white);
+    background-color: var(--gray4);
+    transition: background-color 1s;
+    padding: 8px;
+    border: 0;
+    border-radius: 8px;
+}
+
+input:focus {
+    outline: 0;
+    border: 0;
+    padding: 8px;
+    background-color: var(--gray4);
+    transition: background-color 1s;
+}
+
+textarea {
+    caret-color: var(--white);
+    color: var(--white);
+    background-color: var(--gray4);
+    transition: background-color 1s;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    font-family: inherit;
+    /* Use the same font family as input */
+    font-size: inherit;
+    /* Inherit font size */
+    line-height: inherit;
+}
+
+textarea:focus {
+    outline: 0;
+    border: 0;
+    padding: 10px;
+    background-color: var(--gray4);
+    transition: background-color 1s;
+}
