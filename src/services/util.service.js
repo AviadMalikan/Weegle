@@ -46,23 +46,16 @@ function loadFromStorage(key) {
 function convertTime(dateString) {
     const date = new Date(dateString)
     const now = new Date();
-    console.log('now: ', now)
-    console.log('date: ', date)
-    
-    
 
-    // Check if the date is today
     const isToday = date.getFullYear() === now.getFullYear() &&
         date.getMonth() === now.getMonth() &&
         date.getDate() === now.getDate();
 
     if (isToday) {
-        // Format as hh:mm for the same day
         const hours = String(date.getHours()).padStart(2, '0'); // Zero padding for hours
         const minutes = String(date.getMinutes()).padStart(2, '0'); // Zero padding for minutes
         return `${hours}:${minutes}`;
     } else {
-        // Format as dd MMM for different days
         const day = String(date.getDate()).padStart(2, '0'); // Zero padding for day
         const month = date.toLocaleString('default', { month: 'short' }).toUpperCase(); // Get month in short form and upper case
         return `${day} ${month}`;
