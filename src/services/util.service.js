@@ -4,7 +4,7 @@ export const utilService = {
     getRandomIntInclusive,
     loadFromStorage,
     saveToStorage,
-    showTimeTxt,
+    convertTime,
 }
 
 function makeId(length = 6) {
@@ -43,40 +43,30 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-function showTimeTxt(pastDate) {
-    // Convert string to Date object if necessary
-    if (typeof pastDate === 'string') {
-        pastDate = new Date(pastDate);
-    }
+function convertTime(dateString) {
+    const date = new Date(dateString)
     const now = new Date();
-    const diff = now - pastDate; // Time difference in milliseconds
+    console.log('now: ', now)
+    console.log('date: ', date)
+    
+    
 
-    const minute = 1000 * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-    const week = day * 7;
-    const year = day * 365;
+    // Check if the date is today
+    const isToday = date.getFullYear() === now.getFullYear() &&
+        date.getMonth() === now.getMonth() &&
+        date.getDate() === now.getDate();
 
-    // Convert milliseconds difference to positive number
-    const absDiff = Math.abs(diff);
-    if (absDiff < 59 * 1000) { // Less than 30 seconds
-        return 'now';
-    } else if (absDiff < hour) {
-        const minutes = Math.floor(absDiff / minute);
-        return `${minutes}m`;
-    } else if (absDiff < day) {
-        const hours = Math.floor(absDiff / hour);
-        return `${hours}h`;
-    } else if (absDiff < week) {
-        const days = Math.floor(absDiff / day);
-        return `${days}d`;
-    } else if (absDiff < year) {
-        const weeks = Math.floor(absDiff / week);
-        return `${weeks}w`;
+    if (isToday) {
+        // Format as hh:mm for the same day
+        const hours = String(date.getHours()).padStart(2, '0'); // Zero padding for hours
+        const minutes = String(date.getMinutes()).padStart(2, '0'); // Zero padding for minutes
+        return `${hours}:${minutes}`;
     } else {
-        const years = Math.floor(absDiff / year);
-        return `${years}y`;
+        // Format as dd MMM for different days
+        const day = String(date.getDate()).padStart(2, '0'); // Zero padding for day
+        const month = date.toLocaleString('default', { month: 'short' }).toUpperCase(); // Get month in short form and upper case
+        return `${day} ${month}`;
     }
-
 }
+
 
