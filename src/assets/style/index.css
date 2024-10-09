@@ -27,3 +27,4 @@ body {
 @import 'views/home.css';
 
 /* Component */
+@import 'cmp/mail-list.css'

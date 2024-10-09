@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { mailService } from "../services/mail.service";
 
+import { MailList } from "../cmps/mail-list.jsx";
+
 export function MailIndex() {
-    const [mails, setMails] = useState(null)
+    const [mails, setMails] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
@@ -17,11 +19,12 @@ export function MailIndex() {
         })
     }
 
-    return <main className="">
 
+    return <main className="">
         <h1>Wemail</h1>
         {isLoading && <h3>LOADING...</h3>}
-        {/* {(!isLoading) && JSON.stringify(mails)} */}
+        {(!isLoading) && <MailList mails={mails} />}
+        {/* {(!isLoading) &&  */}
         {(!mails.length && !isLoading) && <h3>No mails yet.</h3>}
     </main>
 }
