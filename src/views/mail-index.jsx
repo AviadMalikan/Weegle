@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { mailService } from "../services/mail.service";
 
-import { MailList } from "../cmps/mail-list.jsx";
+import { MailList } from "../cmps/mails/mail-list.jsx";
 
 export function MailIndex() {
     const [mails, setMails] = useState([])

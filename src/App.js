@@ -5,7 +5,7 @@ import { AppHeader } from './views/app-header.jsx';
 import { Home } from './views/home.jsx';
 import { About } from './views/about.jsx';
 import { MailIndex } from './views/mail-index.jsx';
-import { UserMsg } from './views/user-msg.jsx';
+import { UserMsg } from './cmps/user-msg.jsx';
 
 
 function App() {
