@@ -5,6 +5,7 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     convertTime,
+    convertFullTime,
 }
 
 function makeId(length = 6) {
@@ -62,4 +63,24 @@ function convertTime(dateString) {
     }
 }
 
+function convertFullTime(dateString) {
+    const date = new Date(dateString)
+    const now = new Date(); // Get the current date
+    const diffInTime = now - date; // Difference in milliseconds
+    const diffInDays = Math.floor(diffInTime / (1000 * 60 * 60 * 24)); // Convert difference to days
 
+    // Format the day and time
+    const day = date.getDate(); // Day of the month
+    const month = date.toLocaleString('default', { month: 'short' }); // Short month name
+    const year = date.getFullYear(); // Full year
+    const hours = String(date.getHours()).padStart(2, '0'); // Zero-padded hours
+    const minutes = String(date.getMinutes()).padStart(2, '0'); // Zero-padded minutes
+
+    // Generate the output string
+    const formattedDate = `${day} ${month} ${year}, ${hours}:${minutes}`;
+
+    // Add "(before X days)" part
+    const beforeDays = diffInDays === 0 ? 'today' : `before ${diffInDays} days`;
+
+    return `${formattedDate} (${beforeDays})`;
+}
