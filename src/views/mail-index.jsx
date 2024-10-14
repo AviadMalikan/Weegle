@@ -21,7 +21,6 @@ export function MailIndex() {
 
 
     return <main className="">
-        <h1>Wemail</h1>
         {isLoading && <h3>LOADING...</h3>}
         {(!isLoading) && <MailList mails={mails} />}
         {/* {(!isLoading) &&  */}
