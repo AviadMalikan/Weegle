@@ -1,0 +1,40 @@
+.mail-tools {
+    width: 100%;
+    position: relative;
+    text-align: start;
+}
+
+.mail-subject {
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+header.mail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+content.mail-content {
+    flex-grow: 1;
+    flex-basis: 100%;
+    margin-bottom: 20px;
+}
+
+span.mail-full-date{
+    font-size: 0.67em;
+    font-weight: bold;
+    margin-inline-end: 5px;
+}
+
+p.mail-text{
+    text-align: start;
+}
+
+bottom.mail-bottom {
+    text-align: end;
+    margin: 16px 0;
+}
+
+

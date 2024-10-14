@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { mailService } from "../../services/mail.service"
+import { utilService } from "../../services/util.service"
 
 
 export function MailDetails() {
@@ -32,34 +33,43 @@ export function MailDetails() {
     //     to: "subscriber@example.com",
     //     byUser: "sales@offers.com"
     // },
-    return <main>
-        <section className="mail-tools">
+
+    function onGoBack() {
+        navigate('/mail')
+    }
+
+    if (!mail) return <h3>Loading</h3>
+    return <main className="flex flex-column">
+
+        <section className="mail-tools full">
+            <button className="back-btn" onClick={onGoBack}>🔙</button>
             <button className="delete-btn">♻️</button>
             <button className="read-toggle-btn">👁️</button>
             <button className="label">🏷️</button>
         </section>
 
-
-        <h2 className="title">{mail.subject}</h2>
-        <section className="mail-header">
+        <h2 className="mail-subject">{mail.subject}</h2>
+        <header className="mail-header">
             <div className="header-info">
                 <h4 className="mail-from">{mail.byUser}</h4>
                 <span className="mail-to">{mail.to}</span>
             </div>
             <div className="header-tools">
-                <span className="mail-full-date">date</span>
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
+                <span className="mail-full-date">{utilService.convertFullTime(mail.sentAt)}</span>
+                <button>⭐</button>
+                <button>{mail.isRead ? "📬" : "📫"}</button>
+                <button>Foreword</button>
             </div>
-            <div className="mail-content">
-                <p className="mail-text">{mail.body.txt}</p>
-                {(mail.body.media) && <img src="mail.body.media" alt="mail media" />}
-            </div>
-            <div className="mail-bottom">
-                <button>Replay</button>
-                <button>foreword</button>
-            </div>
-        </section>
+        </header>
+
+        <content className="mail-content">
+            <p className="mail-text">{mail.body.txt}</p>
+            {(mail.body.media) && <img src="mail.body.media" alt="mail media" />}
+        </content>
+
+        <bottom className="mail-bottom">
+            <button>Replay</button>
+            <button>foreword</button>
+        </bottom>
     </main>
 }
