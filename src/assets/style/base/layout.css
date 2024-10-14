@@ -1,7 +1,7 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
-    grid-template-columns: 1fr 620px 1fr;
+    grid-template-columns: 5rem 1fr 5rem;
+    /* grid-template-columns: 1fr 620px 1fr; */
 }
 
 .main-layout>* {
@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 992px) {
     .main-layout {
-        grid-template-columns: 1fr 620px 1fr;
+        grid-template-columns: 1fr 600px 1fr;
     }
 }
 
