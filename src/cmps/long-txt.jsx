@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function LongTxt({ txt, parentRef }) {
+export function LongTxt({ txt, parentRef, isMoreShort }) {
     const [length, setLength] = useState(0);
 
     // Function to adjust the length based on screen size
@@ -8,9 +8,10 @@ export function LongTxt({ txt, parentRef }) {
         if (parentRef.current) {
             const parentWidth = parentRef.current.offsetWidth;
             const screenWidth = window.innerWidth
-            if (screenWidth < 620) setLength((parentWidth / 5) + 10)
-            else if (screenWidth < 1000) setLength((parentWidth / 10) + 5)
-            else setLength((parentWidth / 15) + 15)
+            const dividing = isMoreShort ? 10 : 4
+            if (screenWidth < 620) setLength((parentWidth / dividing) + 10)
+            else if (screenWidth < 1000) setLength((parentWidth / (dividing * 2)) )
+            else setLength((parentWidth / (dividing * 3)) + 15)
         }
     }
 
