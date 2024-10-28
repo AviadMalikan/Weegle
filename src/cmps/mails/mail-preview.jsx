@@ -28,7 +28,7 @@ export function MailPreview({ mail }) {
                 ref={parentRefTxt}>
                 <LongTxt txt={mail.body.txt} parentRef={parentRefTxt} />
             </div>
-            <div className="date">{utilService.convertTime(mail.sentAt)}</div>
+            <div className="mail-date">{utilService.convertTime(mail.sentAt)}</div>
         </section>}
 
         {isMailOpen && <section className="mail-preview-open">
