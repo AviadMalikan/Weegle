@@ -18,8 +18,7 @@ export function MailIndex() {
             setIsLoading(false)
         })
     }
-
-
+    
     return <main className="">
         {isLoading && <h3>LOADING...</h3>}
         {(!isLoading) && <MailList mails={mails} />}
