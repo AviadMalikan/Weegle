@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "//aviadmalikan.github.io/Weegle/static/css/main.7d053c47.css",
+    "main.js": "//aviadmalikan.github.io/Weegle/static/js/main.68c7b1ce.js",
+    "index.html": "//aviadmalikan.github.io/Weegle/index.html",
+    "main.7d053c47.css.map": "//aviadmalikan.github.io/Weegle/static/css/main.7d053c47.css.map",
+    "main.68c7b1ce.js.map": "//aviadmalikan.github.io/Weegle/static/js/main.68c7b1ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7d053c47.css",
+    "static/js/main.68c7b1ce.js"
+  ]
+}
