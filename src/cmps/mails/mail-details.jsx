@@ -5,7 +5,6 @@ import { utilService } from "../../services/util.service"
 
 
 export function MailDetails() {
-
     const [mail, setMail] = useState(null)
     const params = useParams()
     const navigate = useNavigate()
@@ -16,12 +15,28 @@ export function MailDetails() {
 
     function loadMail() {
         mailService.get(params.mailId)
-            .then(setMail)
+            .then(m => {
+                m.isRead = true
+                mailService.save(m).then(setMail)
+            })
             .catch(err => {
                 console.log('Had issue with:', err)
                 navigate('/mail')
             })
     }
+
+    function onToggleFavorite() {
+        const newMail = { ...mail, isFavorite: !mail.isFavorite }
+        mailService.save(newMail)
+            .then(setMail)
+    }
+
+    function onToggleRead() {
+        const newMail = { ...mail, isRead: !mail.isRead }
+        mailService.save(newMail)
+            .then(setMail)
+    }
+
     // {
     //     id: "D8E9F0",
     //     subject: "Limited Time Offer Just for You!",
@@ -39,12 +54,13 @@ export function MailDetails() {
     }
 
     if (!mail) return <h3>Loading</h3>
-    return <main className="flex flex-column">
+    return <main className="mail-details flex flex-column">
 
         <section className="mail-tools full">
             <button className="back-btn" onClick={onGoBack}>🔙</button>
             <button className="delete-btn">♻️</button>
-            <button className="read-toggle-btn">👁️</button>
+            <button onClick={onToggleRead}>{mail.isRead ? "💌" : "✉️"}</button>
+            <button onClick={onToggleFavorite}>⭐</button>
             <button className="label">🏷️</button>
         </section>
 
@@ -56,20 +72,19 @@ export function MailDetails() {
             </div>
             <div className="header-tools">
                 <span className="mail-full-date">{utilService.convertFullTime(mail.sentAt)}</span>
-                <button>⭐</button>
-                <button>{mail.isRead ? "📬" : "📫"}</button>
-                <button>Foreword</button>
+                <button>{"<"}</button>
+                <button>{">"}</button>
             </div>
         </header>
 
-        <content className="mail-content">
+        <section className="mail-content">
             <p className="mail-text">{mail.body.txt}</p>
             {(mail.body.media) && <img src="mail.body.media" alt="mail media" />}
-        </content>
+        </section>
 
-        <bottom className="mail-bottom">
+        <section className="mail-bottom">
             <button>Replay</button>
             <button>foreword</button>
-        </bottom>
+        </section>
     </main>
 }
