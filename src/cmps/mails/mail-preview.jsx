@@ -1,10 +1,12 @@
-import { Fragment, useRef, useState } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { utilService } from "../../services/util.service"
 import { useNavigate } from "react-router-dom"
 import { MailDetails } from "./mail-details"
 import { LongTxt } from "../long-txt"
+import { mailService } from "../../services/mail.service"
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mailToShow }) {
+    const [mail, setMail] = useState(mailToShow)
     const [isMailOpen, setIsMailOpen] = useState(false)
     const parentRefSubject = useRef(null);
     const parentRefTxt = useRef(null);
@@ -12,12 +14,35 @@ export function MailPreview({ mail }) {
 
     function toggleIsMailOpen() {
         setIsMailOpen(prevIsOpen => !prevIsOpen)
+        if (!mail.isRead) {
+            const newMail = { ...mail, isRead: true }
+            setMail(newMail)
+            mailService.save(newMail)
+        }
+    }
+
+    function onToggleProps(type) {
+        let newMail
+        switch (type) {
+            case 'favorite':
+                newMail = { ...mail, isFavorite: !mail.isFavorite }
+                break
+            case 'read':
+                newMail = { ...mail, isRead: !mail.isRead }
+                break
+        }
+
+        setMail(newMail)
+        mailService.save(newMail)
     }
 
 
+    if (!mail) return ''
+    // onClick={onToggleFavorite}
     return <Fragment>
-        {!isMailOpen && <section className="mail-preview">
-            <div className="mail-fav-icon ">⭐</div>
+        {!isMailOpen && <section className={`mail-preview ${mail.isRead ? 'read' : ''}`}>
+            <div className="mail-fav-btn pointer" title="Favorite"
+                onClick={() => onToggleProps('favorite')} >{mail.isFavorite ? "⭐" : '3'}</div>
             <div className="mail-subject-close"
                 onClick={toggleIsMailOpen}
                 ref={parentRefSubject}>
@@ -43,10 +68,10 @@ export function MailPreview({ mail }) {
                     <span className="mail-full-date">{utilService.convertFullTime(mail.sentAt)}</span>
                     <div className="btn-container flex">
 
-                        <button>♻️</button>
-                        <button>⭐</button>
-                        <button>{mail.isRead ? "📬" : "📫"}</button>
-                        <button onClick={() => navigate(`/mail/${mail.id}`)}>→</button>
+                        <button title="Remove" className="remove-btn" >♻️</button>
+                        <button title="Favorite" onClick={() => onToggleProps('favorite')}>⭐</button>
+                        <button title="Mark as not read" onClick={() => onToggleProps('read')}>{mail.isRead ? "💌" : "✉️"}</button>
+                        <button title="Back" onClick={() => navigate(`/mail/${mail.id}`)}>→</button>
                     </div>
                 </div>
             </header>
