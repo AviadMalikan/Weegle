@@ -3,10 +3,8 @@ import { MailPreview } from "../mails/mail-preview";
 export function MailList({ mails }) {
 
     return <section className="mail-list">
-        {mails.map(m => <MailPreview key={m.id} mail={m} />
-            // <section className="mail-preview" key={m.id}>
-            //  return <MailPreview key={m.id} mail={m} />
-            // </section>
+        {mails.map(m => <MailPreview key={m.id}
+            mailToShow={m} />
         )}
     </section>
 
