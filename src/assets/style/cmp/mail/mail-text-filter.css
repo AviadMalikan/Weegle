@@ -1,0 +1,38 @@
+.mail-text-filter {
+    margin-bottom: 10px;
+    position: relative;
+    width: 50%;
+    background-color: var(--gray3);
+    border-radius: 10px;
+}
+
+input.search-input {
+    padding: 8px;
+    width: 100%;
+    background-color: var(--gray3);
+}
+
+input.search-input:focus {
+    background-color: var(--gray1);
+    color: var(--gray4);
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 620px) {
+
+    .mail-text-filter {
+        background-color: var(--gray3);
+        width: 100%;
+    }
+
+    input.search-input {
+        padding: 12px;
+    }
+
+}

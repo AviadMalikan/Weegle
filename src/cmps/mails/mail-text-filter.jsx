@@ -3,7 +3,7 @@ import { mailService } from "../../services/mail.service"
 
 
 
-export function MailFilter({ onSetFilterBy }) {
+export function MailTextFilter({ onSetFilterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(mailService.getDefaultFilter)
     const [isFilterOpen, setIsFilterOpen] = useState(false)
 
@@ -20,12 +20,12 @@ export function MailFilter({ onSetFilterBy }) {
         })
     }
 
-    return <section className="mail-filer">
+    return <section className="mail-text-filter">
 
-        <input type="text" placeholder="Search" name="txt"
+        <input type="text" placeholder="Search" name="txt" class="search-input"
             value={filterByToEdit.txt} onChange={handelChange} />
-
-        <label>
+        <span className="search-btn">🔎</span>
+        {/* <label>
             <input type="checkbox" name="isRead"
                 checked={filterByToEdit.isRead} onChange={handelChange} />
             <span>Read Only</span>
@@ -35,7 +35,7 @@ export function MailFilter({ onSetFilterBy }) {
             <input type="checkbox" name="isFavorite"
                 checked={filterByToEdit.isFavorite} onChange={handelChange} />
             <span>Mark As Favorite</span>
-        </label>
+        </label> */}
 
 
     </section>
