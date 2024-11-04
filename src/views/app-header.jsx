@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 
 
 export function AppHeader() {
@@ -5,9 +6,12 @@ export function AppHeader() {
         <a className="main-logo pointer" href="/#">Weegle</a>
 
         <nav className="app-nav">
-            <a href="about">About</a>
-            <a href="/mail">WeMail</a>
-            <a href="/note">WeNotes</a>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/mail">WeMail</NavLink>
+            <NavLink to="/note">WeNotes</NavLink>
+            {/* <a href="/about">About</a> */}
+            {/* <a href="/mail">WeMail</a> */}
+            {/* <a href="/note">WeNotes</a> */}
         </nav>
     </header>
 }
