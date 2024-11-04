@@ -21,6 +21,7 @@ export const mailService = {
 }
 
 function query(filterBy = getDefaultFilter()) {
+    console.log('filterBy: ', filterBy)
 
     return storageService.query(MAIL_KEY)
         .then(mails => {
@@ -35,9 +36,8 @@ function query(filterBy = getDefaultFilter()) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.byUser))
             }
-            if (filterBy.isRead) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regex.test(mail.isRead))
+            if (filterBy.isRead === true) {
+                mails = mails.filter(m => m.isRead)
             }
             return mails
         })
@@ -86,7 +86,7 @@ function getDefaultFilter() {
         txt: '',
         subject: '',
         sentAt: '',
-        isRead: '',
+        isRead: false,
         // labels: [],
     }
 }

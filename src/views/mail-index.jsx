@@ -26,8 +26,8 @@ export function MailIndex() {
     }
 
     return <main className="">
-        {isLoading && <h3>LOADING...</h3>}
         <MailFilter onSetFilterBy={onSetFilterBy} />
+        {isLoading && <h3>LOADING...</h3>}
         {(!isLoading) && <MailList mails={mails} />}
         {/* {(!isLoading) &&  */}
         {(!mails.length && !isLoading) && <h3>No mails yet.</h3>}
