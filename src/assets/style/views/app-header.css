@@ -27,6 +27,11 @@
   padding-inline-end: 25px;
 }
 
+.app-header .active {
+  filter: drop-shadow(0px 0px 5px #000000);
+
+}
+
 @media(max-width: 720px) {
   .app-header .main-logo {
     margin-inline-start: 10px;
