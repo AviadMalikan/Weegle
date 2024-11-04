@@ -40,6 +40,9 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.isFavorite === true) {
                 mails = mails.filter(m => m.isFavorite)
             }
+            if (filterBy.isArchive === true) {
+                mails = mails.filter(m => m.isArchive)
+            }
             return mails
         })
 }
@@ -74,7 +77,8 @@ function getEmptyMail(txt, subject = 'empty', byUser, date) {
         sentAt: date || new Date(),
         to: '',
         byUser,
-        isFavorite: false
+        isFavorite: false,
+        isArchive: false,
         // content: {
         //     text,
         //     media: [],
@@ -89,7 +93,8 @@ function getDefaultFilter() {
         subject: '',
         sentAt: '',
         isRead: false,
-        isFavorite: false
+        isFavorite: false,
+        isArchive: false,
         // labels: [],
     }
 }
