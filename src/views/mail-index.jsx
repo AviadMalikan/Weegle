@@ -10,6 +10,7 @@ export function MailIndex() {
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter)
     const [isLoading, setIsLoading] = useState(false)
 
+
     useEffect(() => {
         loadMails()
         setIsLoading(true)
@@ -23,15 +24,21 @@ export function MailIndex() {
     }
 
     function onSetFilterBy(filterBy) {
+        console.log('filterBy11: ', filterBy)
+        
         setFilterBy(filterBy)
     }
 
     return <main className="">
         <MailTextFilter onSetFilterBy={onSetFilterBy} />
 
-        <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
-        {isLoading && <h3>LOADING...</h3>}
-        {(!isLoading) && <MailList mails={mails} />}
-        {(!mails.length && !isLoading) && <h3>Not found mails.</h3>}
+        <section className="labels-mails-group">
+            <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
+            {isLoading && <div className="loader">
+                <h3>LOADING...</h3>
+            </div>}
+            {(!mails.length && !isLoading) && <h3>No mails found.</h3>}
+            {(!isLoading || !mails.length) && <MailList mails={mails} />}
+        </section>
     </main>
 }

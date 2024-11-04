@@ -2,3 +2,24 @@
     display: flex;
     flex-direction: column;
 }
+
+.label-filter {
+    width: min-content;
+    width: 120px;
+    background-color: var(--gray4);
+    border-start-end-radius: 10px;
+    border-end-end-radius: 10px;
+    padding: 3px 0;
+}
+
+.label-filter.active {
+    background-color: var(--gray2);
+}
+
+.label-filter.active:hover {
+    background-color: var(--gray2);
+}
+
+.label-filter:hover {
+    background-color: var(--gray3);
+}

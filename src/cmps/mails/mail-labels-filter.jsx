@@ -1,8 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { mailService } from "../../services/mail.service"
+import { NavLink, useParams } from "react-router-dom"
 
 
 export function MailLabelsFilter({ onSetFilterBy }) {
+    const params = useParams()
+
+    useEffect(() => {
+        onSelectLabel(params.label)
+    }, [])
 
     function onSelectLabel(label) {
         let filterBy = mailService.getDefaultFilter()
@@ -14,30 +20,29 @@ export function MailLabelsFilter({ onSetFilterBy }) {
             case 'read':
                 filterBy.isRead = true
                 break
-            case 'trash':
+            case 'archive':
                 filterBy.isArchive = true
                 break
         }
-
         onSetFilterBy(filterBy)
     }
 
     return <section className="mail-label-filter">
-        <label onClick={onSelectLabel}>
-            All
-        </label>
+        <NavLink to="/mail/inbox" className="label-filter" onClick={onSelectLabel}>
+            Inbox
+        </NavLink>
 
-        <label onClick={() => onSelectLabel('read')}>
+        <NavLink to="/mail/read" className="label-filter" onClick={() => onSelectLabel('read')}>
             Read
-        </label>
+        </NavLink>
 
-        <label onClick={() => onSelectLabel('favorite')}>
+        <NavLink to="/mail/favorite" className="label-filter" onClick={() => onSelectLabel('favorite')}>
             Favorite
-        </label>
+        </NavLink>
 
-        <label onClick={() => onSelectLabel('archive')}>
+        <NavLink className="label-filter" onClick={() => onSelectLabel('archive')}>
             Archive
-        </label>
+        </NavLink>
 
     </section>
 }
