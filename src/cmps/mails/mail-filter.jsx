@@ -14,7 +14,6 @@ export function MailFilter({ onSetFilterBy }) {
     function handelChange(ev) {
         let { value, name: field, checked } = ev.target
         value = field === 'txt' ? value : checked
-        console.log('value: ', value)
 
         setFilterByToEdit(prevFilter => {
             return { ...prevFilter, [field]: value }
