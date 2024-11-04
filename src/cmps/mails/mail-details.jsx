@@ -21,7 +21,7 @@ export function MailDetails() {
             })
             .catch(err => {
                 console.log('Had issue with:', err)
-                navigate('/mail')
+                navigate('/mail/inbox')
             })
     }
 
