@@ -5,7 +5,6 @@ import { mailService } from "../../services/mail.service"
 
 export function MailTextFilter({ onSetFilterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(mailService.getDefaultFilter)
-    const [isFilterOpen, setIsFilterOpen] = useState(false)
 
     useEffect(() => {
         onSetFilterBy(filterByToEdit)

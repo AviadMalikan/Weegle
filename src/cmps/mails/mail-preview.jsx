@@ -1,7 +1,6 @@
-import { Fragment, useEffect, useRef, useState } from "react"
+import { Fragment, useRef, useState } from "react"
 import { utilService } from "../../services/util.service"
 import { useNavigate } from "react-router-dom"
-import { MailDetails } from "./mail-details"
 import { LongTxt } from "../long-txt"
 import { mailService } from "../../services/mail.service"
 
@@ -72,7 +71,7 @@ export function MailPreview({ mailToShow }) {
                         <button title="Remove" className="remove-btn" >♻️</button>
                         <button title="Favorite" onClick={() => onToggleProps('favorite')}>⭐</button>
                         <button title="Mark as not read" onClick={() => onToggleProps('read')}>{mail.isRead ? "💌" : "✉️"}</button>
-                        <button title="Back" onClick={() => navigate(`/mail/${mail.id}`)}>→</button>
+                        <button title="Back" onClick={() => navigate(`/mail/inbox/${mail.id}`)}>→</button>
                     </div>
                 </div>
             </header>
@@ -89,42 +88,4 @@ export function MailPreview({ mailToShow }) {
         </section>}
     </Fragment>
 
-    return <Fragment>
-        {!isMailOpen && <>
-            <td className="fav-icon"><span className="pointer">⭐</span></td>
-            <td className="subject pointer" onClick={toggleIsMailOpen}>{mail.subject}</td>
-            <td className="text pointer" onClick={toggleIsMailOpen}>
-                <LongTxt txt={mail.body.txt} />
-            </td>
-            <td>{utilService.convertTime(mail.sentAt)}</td>
-        </>}
-        {/* {isMailOpen && <>
-            <td colSpan="4" className="full-detail-td" >
-                <h2 className="mail-subject" onClick={toggleIsMailOpen}>{mail.subject}</h2>
-                <header className="mail-header" >
-                    <div className="header-info" onClick={toggleIsMailOpen}>
-                        <h4 className="mail-from">{mail.byUser}</h4>
-                        <span className="mail-to">{mail.to}</span>
-                    </div>
-                    <div className="header-tools">
-                        <span className="mail-full-date">{utilService.convertFullTime(mail.sentAt)}</span>
-                        <button>⭐</button>
-                        <button>{mail.isRead ? "📬" : "📫"}</button>
-                        <button onClick={() => navigate(`/mail/${mail.id}`)}>→</button>
-                    </div>
-                </header>
-
-                <section className="mail-content">
-                    <p className="mail-text">{mail.body.txt}</p>
-                    {(mail.body.media) && <img src={`${mail.body.media}`} alt="mail media" />}
-                </section>
-
-                <section className="mail-bottom">
-                    <button>Replay</button>
-                    <button>foreword</button>
-                </section>
-            </td> */}
-
-        {/* </>} */}
-    </Fragment>
 }
