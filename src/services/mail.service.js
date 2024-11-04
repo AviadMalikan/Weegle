@@ -21,8 +21,6 @@ export const mailService = {
 }
 
 function query(filterBy = getDefaultFilter()) {
-    console.log('filterBy: ', filterBy)
-
     return storageService.query(MAIL_KEY)
         .then(mails => {
             if (filterBy.txt) {
