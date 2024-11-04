@@ -39,6 +39,9 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.isRead === true) {
                 mails = mails.filter(m => m.isRead)
             }
+            if (filterBy.isFavorite === true) {
+                mails = mails.filter(m => m.isFavorite)
+            }
             return mails
         })
 }
@@ -73,6 +76,7 @@ function getEmptyMail(txt, subject = 'empty', byUser, date) {
         sentAt: date || new Date(),
         to: '',
         byUser,
+        isFavorite: false
         // content: {
         //     text,
         //     media: [],
@@ -87,6 +91,7 @@ function getDefaultFilter() {
         subject: '',
         sentAt: '',
         isRead: false,
+        isFavorite: false
         // labels: [],
     }
 }

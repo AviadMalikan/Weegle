@@ -13,7 +13,7 @@ export function MailFilter({ onSetFilterBy }) {
 
     function handelChange(ev) {
         let { value, name: field, checked } = ev.target
-        value = field === 'isRead' ? checked : value
+        value = field === 'txt' ? value : checked
         console.log('value: ', value)
 
         setFilterByToEdit(prevFilter => {
@@ -30,6 +30,12 @@ export function MailFilter({ onSetFilterBy }) {
             <input type="checkbox" name="isRead"
                 checked={filterByToEdit.isRead} onChange={handelChange} />
             <span>Read Only</span>
+        </label>
+
+        <label>
+            <input type="checkbox" name="isFavorite"
+                checked={filterByToEdit.isFavorite} onChange={handelChange} />
+            <span>Mark As Favorite</span>
         </label>
 
 
