@@ -3,6 +3,7 @@ import { mailService } from "../services/mail.service";
 
 import { MailList } from "../cmps/mails/mail-list.jsx";
 import { MailTextFilter } from "../cmps/mails/mail-text-filter.jsx";
+import { MailLabelsFilter } from "../cmps/mails/mail-labels-filter.jsx";
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
@@ -27,9 +28,10 @@ export function MailIndex() {
 
     return <main className="">
         <MailTextFilter onSetFilterBy={onSetFilterBy} />
+
+        <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
         {isLoading && <h3>LOADING...</h3>}
         {(!isLoading) && <MailList mails={mails} />}
-        {/* {(!isLoading) &&  */}
-        {(!mails.length && !isLoading) && <h3>No mails yet.</h3>}
+        {(!mails.length && !isLoading) && <h3>Not found mails.</h3>}
     </main>
 }

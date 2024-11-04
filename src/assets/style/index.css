@@ -25,9 +25,11 @@ body {
 /* @import 'views/post-index.css'; */
 /* @import 'views/about.css'; */
 @import 'views/home.css';
+@import 'views/mail-index.css';
 
 /* Component */
 @import 'cmp/mail/mail-list.css';
 @import 'cmp/mail/mail-preview.css';
 @import 'cmp/mail/mail-details.css';
 @import 'cmp/mail/mail-text-filter.css';
+@import 'cmp/mail/mail-labels-filter.css';

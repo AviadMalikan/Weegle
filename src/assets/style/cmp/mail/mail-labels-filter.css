@@ -1,0 +1,4 @@
+.mail-label-filter {
+    display: flex;
+    flex-direction: column;
+}

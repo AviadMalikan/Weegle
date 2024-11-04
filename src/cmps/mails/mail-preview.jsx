@@ -20,16 +20,16 @@ export function MailPreview({ mailToShow }) {
             mailService.save(newMail)
         }
     }
-    
+
     function onToggleProps(type) {
         let newMail
         switch (type) {
             case 'favorite':
                 newMail = { ...mail, isFavorite: !mail.isFavorite }
                 break
-                case 'read':
-                    newMail = { ...mail, isRead: !mail.isRead }
-                    setIsMailOpen(prevIsOpen => !prevIsOpen)
+            case 'read':
+                newMail = { ...mail, isRead: !mail.isRead }
+                setIsMailOpen(prevIsOpen => !prevIsOpen)
                 break
         }
 

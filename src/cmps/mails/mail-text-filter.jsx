@@ -22,7 +22,7 @@ export function MailTextFilter({ onSetFilterBy }) {
 
     return <section className="mail-text-filter">
 
-        <input type="text" placeholder="Search" name="txt" class="search-input"
+        <input type="text" placeholder="Search" name="txt" className="search-input"
             value={filterByToEdit.txt} onChange={handelChange} />
         <span className="search-btn">🔎</span>
         {/* <label>
