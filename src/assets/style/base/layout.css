@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 992px) {
     .main-layout {
-        grid-template-columns: 1fr 600px 1fr;
+        grid-template-columns: 2rem 1fr 2rem;
     }
 }
 
