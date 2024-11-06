@@ -2,6 +2,7 @@
     /* border: 0.3px solid var(--gray3); */
     border-radius:2px;
     flex-grow: 2;
+    margin-inline-start: 40px;
 }
 
 

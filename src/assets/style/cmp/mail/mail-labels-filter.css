@@ -1,25 +1,64 @@
 .mail-label-filter {
     display: flex;
     flex-direction: column;
+    width: 50px;
+    transition: width 0.1s;
+    padding-inline-end: 20px;
+    z-index: 3;
+    position: fixed;
+    background-color: var(--gray4);
+    height: 100vh;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mail-label-filter:hover {
+    text-align: start;
+    box-shadow: 8px 0px 10px -5px rgba(0, 0, 0, 0.75);
+    width: 200px;
+}
+
+.compose-btn {
+    width: auto;
+    white-space: nowrap;
+    padding: 8px 0;
+    border-radius: 10px;
+}
+
+.compose-btn.open {
+    text-align: center;
+    background-color: var(--gray1);
+    color: var(--gray4);
+    margin-bottom: 5px;
+}
+
+.compose-btn:hover {
+    background-color: var(--gray1);
+    padding: 8px;
 }
 
 .label-filter {
     width: min-content;
-    width: 120px;
     background-color: var(--gray4);
+    padding: 3px ;
+    width: 100%;
+    margin: 3px 0;
+    border-radius: 10px;
+    transition: all .1s;
+    border-radius: 50%;
+}
+
+.label-filter.open {
+    border-radius: 0px;
     border-start-end-radius: 10px;
     border-end-end-radius: 10px;
-    padding: 3px 0;
 }
+
 
 .label-filter.active {
-    background-color: var(--gray2);
-}
-
-.label-filter.active:hover {
-    background-color: var(--gray2);
+    background-color: var(--gray3);
 }
 
 .label-filter:hover {
-    background-color: var(--gray3);
+    background-color: var(--gray2);
 }

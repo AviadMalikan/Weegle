@@ -1,10 +1,12 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { mailService } from "../../services/mail.service"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useNavigate, useParams } from "react-router-dom"
 
 
 export function MailLabelsFilter({ onSetFilterBy }) {
+    const [isHover, setIsHover] = useState(false)
     const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         onSelectLabel(params.label)
@@ -23,25 +25,40 @@ export function MailLabelsFilter({ onSetFilterBy }) {
             case 'archive':
                 filterBy.isArchive = true
                 break
+            default:
+                navigate("/mail/inbox")
         }
+
         onSetFilterBy(filterBy)
     }
 
-    return <section className="mail-label-filter">
-        <NavLink to="/mail/inbox" className="label-filter" onClick={onSelectLabel}>
-            Inbox
+    return <section className="mail-label-filter"
+        onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+
+
+        <NavLink to="/mail/inbox/compose" className={`compose-btn ${isHover ? "open" : ""}`}
+            onClick={onSelectLabel}>
+            {isHover ? "➕ Compose" : "➕"}
         </NavLink>
 
-        <NavLink to="/mail/read" className="label-filter" onClick={() => onSelectLabel('read')}>
-            Read
+        <NavLink to="/mail/inbox" className={`label-filter ${isHover ? "open" : ""}`}
+            onClick={onSelectLabel}>
+            {isHover ? "📥 Inbox" : "📥"}
         </NavLink>
 
-        <NavLink to="/mail/favorite" className="label-filter" onClick={() => onSelectLabel('favorite')}>
-            Favorite
+        <NavLink to="/mail/read" className={`label-filter ${isHover ? "open" : ""}`}
+            onClick={() => onSelectLabel('read')}>
+            {isHover ? "👁️ Read" : "👁️"}
         </NavLink>
 
-        <NavLink className="label-filter" onClick={() => onSelectLabel('archive')}>
-            Archive
+        <NavLink to="/mail/favorite" className={`label-filter ${isHover ? "open" : ""}`}
+            onClick={() => onSelectLabel('favorite')}>
+            {isHover ? "⭐ Favorite" : "⭐"}
+        </NavLink>
+
+        <NavLink to="/mail/archive" className={`label-filter ${isHover ? "open" : ""}`}
+            onClick={() => onSelectLabel('archive')}>
+            {isHover ? "♻️ Archive" : "♻️"}
         </NavLink>
 
     </section>
