@@ -7,7 +7,7 @@ export function AppHeader() {
 
         <nav className="app-nav">
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail">WeMail</NavLink>
+            <NavLink to="/mail/inbox">WeMail</NavLink>
             <NavLink to="/note">WeNotes</NavLink>
             {/* <a href="/about">About</a> */}
             {/* <a href="/mail">WeMail</a> */}
