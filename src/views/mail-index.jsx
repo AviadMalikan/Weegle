@@ -24,21 +24,19 @@ export function MailIndex() {
     }
 
     function onSetFilterBy(filterBy) {
-        console.log('filterBy11: ', filterBy)
-        
         setFilterBy(filterBy)
     }
 
     return <main className="">
+        {isLoading && <div className="loader">
+            <h3>LOADING...</h3>
+        </div>}
         <MailTextFilter onSetFilterBy={onSetFilterBy} />
 
         <section className="labels-mails-group">
             <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
-            {isLoading && <div className="loader">
-                <h3>LOADING...</h3>
-            </div>}
             {(!mails.length && !isLoading) && <h3>No mails found.</h3>}
-            {(!isLoading || !mails.length) && <MailList mails={mails} />}
+            {(mails.length !== 0) && <MailList mails={mails} />}
         </section>
     </main>
 }
