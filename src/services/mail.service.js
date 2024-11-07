@@ -57,21 +57,20 @@ function remove(mailId) {
 }
 
 function save(mail) {
+
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
-
     } else {
-        return storageService.mail(MAIL_KEY, mail)
+        return storageService.post(MAIL_KEY, mail)
     }
 }
 
 
 function getEmptyMail(txt, subject, date) {
     return {
-        subject,
+        subject: '',
         body: {
-            txt,
-            media: []
+            txt: '',
         },
         isRead: false,
         sentAt: date || new Date(),
