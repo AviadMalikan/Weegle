@@ -33,3 +33,4 @@ body {
 @import 'cmp/mail/mail-details.css';
 @import 'cmp/mail/mail-text-filter.css';
 @import 'cmp/mail/mail-labels-filter.css';
+@import 'cmp/mail/mail-compose.css';

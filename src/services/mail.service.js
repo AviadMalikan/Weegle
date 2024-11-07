@@ -66,7 +66,7 @@ function save(mail) {
 }
 
 
-function getEmptyMail(txt, subject = 'empty', byUser, date) {
+function getEmptyMail(txt, subject, date) {
     return {
         subject,
         body: {
@@ -76,7 +76,7 @@ function getEmptyMail(txt, subject = 'empty', byUser, date) {
         isRead: false,
         sentAt: date || new Date(),
         to: '',
-        byUser,
+        byUser: loggedInUser.email,
         isFavorite: false,
         isArchive: false,
         // content: {

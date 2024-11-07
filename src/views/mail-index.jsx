@@ -4,6 +4,7 @@ import { mailService } from "../services/mail.service";
 import { MailList } from "../cmps/mails/mail-list.jsx";
 import { MailTextFilter } from "../cmps/mails/mail-text-filter.jsx";
 import { MailLabelsFilter } from "../cmps/mails/mail-labels-filter.jsx";
+import { Outlet } from "react-router-dom";
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
@@ -37,6 +38,7 @@ export function MailIndex() {
             <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
             {(!mails.length && !isLoading) && <h3>No mails found.</h3>}
             {(mails.length !== 0) && <MailList mails={mails} />}
+            <Outlet />
         </section>
     </main>
 }
