@@ -26,6 +26,7 @@ body {
 /* @import 'views/about.css'; */
 @import 'views/home.css';
 @import 'views/mail-index.css';
+@import 'views/loader.css';
 
 /* Component */
 @import 'cmp/mail/mail-list.css';
