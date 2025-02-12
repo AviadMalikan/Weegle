@@ -57,7 +57,6 @@ function remove(mailId) {
 }
 
 function save(mail) {
-
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
