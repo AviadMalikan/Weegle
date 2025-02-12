@@ -1,5 +1,16 @@
 .note-list {
+    margin-top: 10px;
+}
+
+.note-list-other, .note-list-pinned{
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+}
+
+.note-list-pinned{
+    margin-bottom: 50px;
+}
+
+.note-list-title {
+    text-align: start;
 }

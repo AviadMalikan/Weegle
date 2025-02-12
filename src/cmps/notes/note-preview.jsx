@@ -1,6 +1,8 @@
+import { useState } from "react"
 
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onRemoveNote }) {
+    const [isHover, setIsHover] = useState(false)
 
 
     // {
@@ -21,8 +23,15 @@ export function NotePreview({ note }) {
     // },
 
 
-    return <section className="note-preview">
+    return <article className="note-preview"
+        onMouseLeave={() => setIsHover(false)} onMouseEnter={() => setIsHover(true)}>
+
         {(note.info.title) && <h4 className="note-title">{note.info.title}</h4>}
         <p className="note-text">{note.info.text}</p>
-    </section>
+
+        {<section className={`btn-container ${isHover ? "hovering" : ""}`}>
+            <button className="note-remove-btn" onClick={() => onRemoveNote(note.id)}>🗑️</button>
+        </section>
+        }
+    </article >
 }
