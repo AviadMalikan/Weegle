@@ -5,6 +5,7 @@ import { MailList } from "../cmps/mails/mail-list.jsx";
 import { MailTextFilter } from "../cmps/mails/mail-text-filter.jsx";
 import { MailLabelsFilter } from "../cmps/mails/mail-labels-filter.jsx";
 import { Outlet } from "react-router-dom";
+import { Loader } from "../cmps/mails/loader.jsx";
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
@@ -29,9 +30,7 @@ export function MailIndex() {
     }
 
     return <main className="">
-        {isLoading && <div className="loader">
-            <h3>LOADING...</h3>
-        </div>}
+        {isLoading && <Loader />}
         <MailTextFilter onSetFilterBy={onSetFilterBy} />
 
         <section className="labels-mails-group">

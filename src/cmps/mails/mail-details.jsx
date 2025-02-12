@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { mailService } from "../../services/mail.service"
 import { utilService } from "../../services/util.service"
+import { Loader } from "./loader"
 
 
 export function MailDetails() {
@@ -53,7 +54,7 @@ export function MailDetails() {
         navigate('/mail')
     }
 
-    if (!mail) return <h3>Loading</h3>
+    if (!mail) return <Loader/>
     return <main className="mail-details flex flex-column">
 
         <section className="mail-tools full">
