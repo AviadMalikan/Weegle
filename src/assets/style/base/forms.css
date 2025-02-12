@@ -14,6 +14,22 @@ button:hover {
     transition: .3s;
 }
 
+.note-btn {
+    cursor: pointer;
+    transition: .3s all ;
+    background: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+}
+
+.note-btn:hover {
+    background-color: var(--gray3);
+
+}
+
 input {
     caret-color: var(--white);
     color: var(--white);
