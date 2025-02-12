@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 50px;
-    transition: width 0.1s;
+    transition: width 0.2s;
     padding-inline-end: 20px;
     z-index: 3;
     position: fixed;
@@ -10,6 +10,7 @@
     height: 100vh;
     text-align: center;
     white-space: nowrap;
+    padding-top: 10px;
 }
 
 .mail-label-filter:hover {

@@ -61,7 +61,7 @@ export function MailLabelsFilter({ onSetFilterBy }) {
 
         <NavLink to="/mail/archive" className={`label-filter ${isHover ? "open" : ""}`}
             onClick={() => onSelectLabel('archive')}>
-            {isHover ? "♻️ Archive" : "♻️"}
+            {isHover ? "🗑️ Archive" : "🗑️"}
         </NavLink>
 
     </section>

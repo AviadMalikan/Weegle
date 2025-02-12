@@ -59,7 +59,7 @@ export function MailDetails() {
 
         <section className="mail-tools full">
             <button className="back-btn" onClick={onGoBack}>🔙</button>
-            <button className="delete-btn">♻️</button>
+            <button className="delete-btn">🗑️</button>
             <button onClick={onToggleRead}>{mail.isRead ? "💌" : "✉️"}</button>
             <button onClick={onToggleFavorite}>⭐</button>
             <button className="label">🏷️</button>
