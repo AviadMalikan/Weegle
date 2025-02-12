@@ -19,6 +19,9 @@ export function MailLabelsFilter({ onSetFilterBy }) {
             case 'favorite':
                 filterBy.isFavorite = true
                 break
+            case 'sent':
+                filterBy.isFavorite = true
+                break
             case 'read':
                 filterBy.isRead = true
                 break

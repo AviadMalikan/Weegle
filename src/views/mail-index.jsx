@@ -29,13 +29,13 @@ export function MailIndex() {
         setFilterBy(filterBy)
     }
 
-    return <main className="">
+    return <main className="main-layout full">
         {isLoading && <Loader />}
         <MailTextFilter onSetFilterBy={onSetFilterBy} />
 
         <section className="labels-mails-group">
             <MailLabelsFilter onSetFilterBy={onSetFilterBy} />
-            {(!mails.length && !isLoading) && <h3>No mails found.</h3>}
+            {(!mails.length && !isLoading) && <h3 className="mail-list">No mails found.</h3>}
             {(mails.length !== 0) && <MailList mails={mails} />}
             <Outlet />
         </section>
