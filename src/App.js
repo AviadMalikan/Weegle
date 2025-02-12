@@ -8,6 +8,7 @@ import { UserMsg } from './cmps/user-msg.jsx';
 import { MailIndex } from './views/mail-index.jsx';
 import { MailDetails } from './cmps/mails/mail-details.jsx';
 import { MailCompose } from './cmps/mails/mail-compose.jsx';
+import { NoteIndex } from './views/note-index.jsx';
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
           {/* <Route path="/mail/archive" element={<Navigate to="/mail/inbox" />} /> */}
         </Route>
         <Route path="/mail/inbox/:mailId" element={<MailDetails />} />
+
+
+        <Route path="/note" element={<NoteIndex />}>
+
+        </Route>
       </Routes>
 
       <UserMsg />

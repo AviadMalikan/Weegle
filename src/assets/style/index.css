@@ -25,13 +25,19 @@ body {
 /* @import 'views/post-index.css'; */
 /* @import 'views/about.css'; */
 @import 'views/home.css';
-@import 'views/mail-index.css';
 @import 'views/loader.css';
 
-/* Component */
+/* Mail Component */
+@import 'cmp/mail/mail-index.css';
 @import 'cmp/mail/mail-list.css';
 @import 'cmp/mail/mail-preview.css';
 @import 'cmp/mail/mail-details.css';
 @import 'cmp/mail/mail-text-filter.css';
 @import 'cmp/mail/mail-labels-filter.css';
 @import 'cmp/mail/mail-compose.css';
+
+/* Note Component */
+@import 'cmp/note/note-index.css';
+@import 'cmp/note/note-list.css';
+@import 'cmp/note/note-preview.css';
+@import 'cmp/note/note-details.css';
