@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { mailService } from "../../services/mail.service"
 import { utilService } from "../../services/util.service"
-import { Loader } from "./loader"
+import { Loader } from "../loader"
 
 
 export function MailDetails() {

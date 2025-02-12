@@ -5,7 +5,7 @@ import { MailList } from "../cmps/mails/mail-list.jsx";
 import { MailTextFilter } from "../cmps/mails/mail-text-filter.jsx";
 import { MailLabelsFilter } from "../cmps/mails/mail-labels-filter.jsx";
 import { Outlet } from "react-router-dom";
-import { Loader } from "../cmps/mails/loader.jsx";
+import { Loader } from "../cmps/loader.jsx";
 
 export function MailIndex() {
     const [mails, setMails] = useState([])
