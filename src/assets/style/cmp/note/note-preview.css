@@ -4,7 +4,7 @@
     width: 270px;
     min-height: 130px;
     border-radius: 8px;
-    border: 1px rgba(255, 255, 255, 0.26) solid;
+    border: 1px rgba(255, 255   , 255, 0.26) solid;
     padding: 12px 16px;
     position: relative;
 }
@@ -19,12 +19,12 @@
 }
 
 
-.btn-container{
+.note-tool-btn-container{
     transition: .3s all ;
     opacity: 0;
 }
 
-.btn-container.hovering{
+.note-tool-btn-container.hovering{
     opacity: 1;
 }
 
