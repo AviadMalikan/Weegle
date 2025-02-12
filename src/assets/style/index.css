@@ -38,6 +38,7 @@ body {
 
 /* Note Component */
 @import 'cmp/note/note-index.css';
+@import 'cmp/note/note-edit.css';
 @import 'cmp/note/note-list.css';
 @import 'cmp/note/note-preview.css';
 @import 'cmp/note/note-details.css';

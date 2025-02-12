@@ -1,0 +1,23 @@
+.note-edit {}
+
+.add-note-btn {
+    cursor: text;
+    height: 46px;
+    width: 70%;
+    margin: auto;
+    padding: 12px 16px;
+    text-align: start;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px rgba(255, 255, 255, 0.26) solid;
+    line-height: 2.2;
+}
+
+
+.add-note-btn-container {
+    display: flex;
+    gap: 0 10px;
+    position: relative;
+}
