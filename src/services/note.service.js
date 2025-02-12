@@ -68,9 +68,9 @@ function _createNotes() {
     if (!notes || !notes.length) {
         notes = [
             {
-                id: "1",
+                id: "ASD1",
                 type: "text",
-                isPinned: false,
+                isPinned: true,
                 info: {
                     title: '',
                     text: "Buy milk, check emails, plan vacation",
@@ -80,7 +80,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "1",
+                id: "AS22DD1",
                 type: "text",
                 isPinned: false,
                 info: {
@@ -92,7 +92,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "2",
+                id: "DDD2AA2",
                 type: "list",
                 isPinned: false,
                 info: {
@@ -108,7 +108,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "3",
+                id: "AF33FFD",
                 type: "image",
                 isPinned: false,
                 info: {
@@ -121,7 +121,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "4",
+                id: "B44ASD",
                 type: "todo",
                 isPinned: false,
                 info: {
@@ -137,7 +137,7 @@ function _createNotes() {
                 }
             },
             {
-                id: "5",
+                id: "VVA5LI",
                 type: "video",
                 isPinned: false,
                 info: {
