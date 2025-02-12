@@ -30,6 +30,10 @@ export function MailPreview({ mailToShow }) {
                 newMail = { ...mail, isRead: !mail.isRead }
                 setIsMailOpen(prevIsOpen => !prevIsOpen)
                 break
+            case 'remove':
+                newMail = { ...mail, isArchive: true }
+                setIsMailOpen(prevIsOpen => !prevIsOpen)
+                break
         }
 
         setMail(newMail)
@@ -41,7 +45,7 @@ export function MailPreview({ mailToShow }) {
     // onClick={onToggleFavorite}
     return <Fragment>
         {!isMailOpen && <section className={`mail-preview ${mail.isRead ? 'read' : ''}`}>
-        <div className={`mail-fav-btn ${mail.isFavorite ? "is-favorite" : ''} pointer`} title="Favorite"
+            <div className={`mail-fav-btn ${mail.isFavorite ? "is-favorite" : ''} pointer`} title="Favorite"
                 onClick={() => onToggleProps('favorite')} >⭐</div>
             <div className="mail-subject-close"
                 onClick={toggleIsMailOpen}
@@ -68,7 +72,8 @@ export function MailPreview({ mailToShow }) {
                     <span className="mail-full-date">{utilService.convertFullTime(mail.sentAt)}</span>
                     <div className="btn-container flex">
 
-                        <button title="Remove" className="remove-btn" >♻️</button>
+                        <button title="Remove" className="remove-btn"
+                            onClick={() => onToggleProps('remove')}>🗑️</button>
                         <button title="Favorite" onClick={() => onToggleProps('favorite')}>⭐</button>
                         <button title="Mark as not read" onClick={() => onToggleProps('read')}>{mail.isRead ? "💌" : "✉️"}</button>
                         <button title="Back" onClick={() => navigate(`/mail/inbox/${mail.id}`)}>→</button>
