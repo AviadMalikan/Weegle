@@ -23,6 +23,12 @@ export const mailService = {
 function query(filterBy = getDefaultFilter()) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            if (filterBy.isArchive === true) {
+                return mails = mails.filter(m => m.isArchive)
+            }
+            if (filterBy.isArchive === false) {
+                mails = mails.filter(m => !(m.isArchive))
+            }
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => {
@@ -39,9 +45,6 @@ function query(filterBy = getDefaultFilter()) {
             }
             if (filterBy.isFavorite === true) {
                 mails = mails.filter(m => m.isFavorite)
-            }
-            if (filterBy.isArchive === true) {
-                mails = mails.filter(m => m.isArchive)
             }
             return mails
         })
