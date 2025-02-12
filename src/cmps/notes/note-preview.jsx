@@ -4,7 +4,6 @@ import { useState } from "react"
 export function NotePreview({ note, onRemoveNote }) {
     const [isHover, setIsHover] = useState(false)
 
-
     // {
     //     id: "2",
     //     type: "list",
@@ -27,10 +26,12 @@ export function NotePreview({ note, onRemoveNote }) {
         onMouseLeave={() => setIsHover(false)} onMouseEnter={() => setIsHover(true)}>
 
         {(note.info.title) && <h4 className="note-title">{note.info.title}</h4>}
-        <p className="note-text">{note.info.text}</p>
+        <p className="note-text">
+            {note.info.text}
+        </p>
 
-        {<section className={`btn-container ${isHover ? "hovering" : ""}`}>
-            <button className="note-remove-btn" onClick={() => onRemoveNote(note.id)}>🗑️</button>
+        {<section className={`note-tool-btn-container ${isHover ? "hovering" : "hidden"}`}>
+            {<button className="note-remove-btn" onClick={() => onRemoveNote(note.id)}>🗑️</button>}
         </section>
         }
     </article >
