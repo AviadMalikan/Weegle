@@ -17,6 +17,7 @@
 .app-header .main-logo {
   margin-inline-start: 25px;
   font-weight: 1000;
+  color: var(--clr3);
 }
 
 .app-header .login-btn {

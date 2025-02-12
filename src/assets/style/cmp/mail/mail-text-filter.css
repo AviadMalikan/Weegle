@@ -1,34 +1,44 @@
 .mail-text-filter {
-    margin-bottom: 10px;
-    position: relative;
-    width: 50%;
-    background-color: var(--gray3);
-    border-radius: 10px;
+    padding: 8px;
+    width: 100%;
+    position: sticky;
+    top: 50px;
+    z-index: 3;
+    transition: all .1s;
+    background-color: rgba(0, 0, 0, 0.314);
+    backdrop-filter: blur(10px);
 }
+
 
 input.search-input {
     padding: 8px;
-    width: 100%;
+    width: 50%;
     background-color: var(--gray3);
 }
 
 input.search-input:focus {
-    background-color: var(--gray1);
-    color: var(--gray4);
+    background-color: var(--gray2);
+    color: var(--gray1);
 }
 
 .search-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    right: 25px;
+    top: 1px;
 }
 
 @media screen and (max-width: 620px) {
 
-    .mail-text-filter {
-        background-color: var(--gray3);
+    input.search-input {
+        padding: 8px;
         width: 100%;
+        background-color: var(--gray3);
+    }
+
+    .search-btn {
+        position: fixed;
+        right: 15px;
+        top: 16px;
     }
 
     input.search-input {
