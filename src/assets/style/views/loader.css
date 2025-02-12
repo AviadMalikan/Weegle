@@ -1,0 +1,41 @@
+.loader-bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+}
+.loader {
+  top: 50%;
+  right: 50%;
+  position: relative;
+}
+.loader:before ,  .loader:after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: relative;
+    margin: 10px auto ;
+    border-radius: 50%;
+    background: var(--clr1);
+    animation: left 1s infinite ease-in-out;
+  }
+  .loader:after {
+    background: var(--clr2);
+    animation: right 1s infinite ease-in-out;
+  }
+
+
+@keyframes right {
+  0% , 100%{transform: translate(-15px) }
+  50% { transform: translate(15px) }
+}
+
+@keyframes left {
+  0% , 100%{ transform: translate(15px) }
+  50% { transform: translate(-15px) }
+}
+
+
