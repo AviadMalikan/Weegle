@@ -50,6 +50,14 @@ h2.mail-subject {
     margin-inline-start: 5px;
 }
 
+.mail-fav-btn{
+    opacity: .2;
+}
+
+.mail-fav-btn.is-favorite{
+    opacity: 1;
+}
+
 
 /* Mail Close */
 .mail-subject-close,
@@ -95,6 +103,7 @@ h2.mail-subject {
         align-items: center;
         justify-content: center;
     }
+
 
     .mail-date {
         display: flex;

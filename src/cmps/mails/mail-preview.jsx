@@ -41,8 +41,8 @@ export function MailPreview({ mailToShow }) {
     // onClick={onToggleFavorite}
     return <Fragment>
         {!isMailOpen && <section className={`mail-preview ${mail.isRead ? 'read' : ''}`}>
-            <div className="mail-fav-btn pointer" title="Favorite"
-                onClick={() => onToggleProps('favorite')} >{mail.isFavorite ? "⭐" : '⬜'}</div>
+            <div className={`mail-fav-btn ${mail.isFavorite ? "is-favorite" : ''} pointer`} title="Favorite"
+                onClick={() => onToggleProps('favorite')} >⭐</div>
             <div className="mail-subject-close"
                 onClick={toggleIsMailOpen}
                 ref={parentRefSubject}>
