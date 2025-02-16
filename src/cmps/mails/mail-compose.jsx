@@ -26,7 +26,6 @@ export function MailCompose() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setMailToEdit(prevMail => { return { ...prevMail, date: new Date() } })
-        console.log('Form data saved:', mailToEdit);
         mailService.save(mailToEdit).then(
             navigate('/mail/inbox')
         )
