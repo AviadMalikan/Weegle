@@ -1,25 +1,11 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 export function NotePreview({ note, onRemoveNote }) {
     const [isHover, setIsHover] = useState(false)
 
-    // {
-    //     id: "2",
-    //     type: "list",
-    //     isPinned: false,
-    //     info: {
-    //         title: "Grocery Shopping",
-    //         items: [
-    //             { text: "Milk", isChecked: false },
-    //             { text: "Bread", isChecked: true },
-    //             { text: "Eggs", isChecked: false }
-    //         ]
-    //     },
-    //     style: {
-    //         background: "#90EE90"
-    //     }
-    // },
+
 
 
     return <article className="note-preview"
@@ -32,6 +18,7 @@ export function NotePreview({ note, onRemoveNote }) {
 
         {<section className={`note-tool-btn-container ${isHover ? "hovering" : "hidden"}`}>
             {<button className="note-remove-btn" onClick={() => onRemoveNote(note.id)}>🗑️</button>}
+            {<Link to={`/note/edit/${note.id}`} className="note-remove-btn"  >✏️</Link>}
         </section>
         }
     </article >
