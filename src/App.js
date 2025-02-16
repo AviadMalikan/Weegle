@@ -9,6 +9,7 @@ import { MailIndex } from './views/mail-index.jsx';
 import { MailDetails } from './cmps/mails/mail-details.jsx';
 import { MailCompose } from './cmps/mails/mail-compose.jsx';
 import { NoteIndex } from './views/note-index.jsx';
+import { NoteEdit } from './cmps/notes/note-edit.jsx';
 
 
 function App() {
@@ -30,8 +31,10 @@ function App() {
 
 
         <Route path="/note" element={<NoteIndex />}>
-
+          <Route path="/note/edit" element={<NoteEdit />} />
+          <Route path="/note/edit/:noteId" element={<NoteEdit />} />
         </Route>
+
       </Routes>
 
       <UserMsg />
