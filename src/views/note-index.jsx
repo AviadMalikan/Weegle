@@ -29,9 +29,26 @@ export function NoteIndex() {
             })
     }
 
+    function onSaveNotes(noteToEdit) {
+        noteService.save(noteToEdit)
+            .then(() => {
+                setNotes((prevNotes) => {
+                    const noteIdx = prevNotes.findIndex(n => n.id === noteToEdit.id)
+                    if (noteIdx === -1) {
+                        return [noteToEdit, ...prevNotes]
+                    } else {
+                        const updatedNotes = [...prevNotes]
+                        updatedNotes[noteIdx] = noteToEdit
+                        return updatedNotes
+
+                    }
+                })
+            })
+    }
+
     return <main className="main-layout full">
         {isLoading && <Loader />}
-        <NoteEdit />
+        <NoteEdit onSaveNotes={onSaveNotes} />
         {(!notes.length && !isLoading) && <h3 className="note-list">No Notes Yet</h3>}
         <NoteList notes={notes} onRemoveNote={onRemoveNote} />
 
