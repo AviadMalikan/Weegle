@@ -11,7 +11,6 @@ export function NoteList({ notes, onRemoveNote }) {
 
     function checkIsPined() {
         const hadPinnedNotes = notes.every(n => !n.isPinned)
-        console.log('checked: ', hadPinnedNotes)
         setIsPinnedNotes(!hadPinnedNotes)
         // setIsPinnedNotes(!(notes.every(n => !n.isPinned)))
     }
